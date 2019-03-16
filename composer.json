@@ -18,10 +18,10 @@
         "roave/security-advisories": "dev-master"
     },
     "scripts": {
-        "phpcs": "./vendor/bin/phpcs --standard=BrandEmbassyCodingStandard src-php",
-        "phpcbf": "./vendor/bin/phpcbf --standard=BrandEmbassyCodingStandard src-php",
-        "phpstan": "./vendor/bin/phpstan analyse src-php",
-        "test": "./vendor/bin/phpunit src-php"
+        "phpcs": "./vendor/bin/phpcs --standard=BrandEmbassyCodingStandard src",
+        "phpcbf": "./vendor/bin/phpcbf --standard=BrandEmbassyCodingStandard src",
+        "phpstan": "./vendor/bin/phpstan analyse src",
+        "test": "./vendor/bin/phpunit src"
     },
     "config": {
         "sort-packages": true,
