@@ -8,11 +8,11 @@
     },
     "require": {
         "php": "^7.2",
-        "brandembassy/ui-components": "^2.2",
-        "nette/forms": "2.4"
+        "brandembassy/ui-components": "2.2.1",
+        "nette/forms": "3.0"
     },
     "require-dev": {
-        "brandembassy/coding-standard": "^5.2",
+        "brandembassy/coding-standard": "^5.3",
         "mockery/mockery": "^1.2",
         "phpunit/phpunit": "^8",
         "roave/security-advisories": "dev-master"
@@ -23,6 +23,8 @@
         "phpstan": "./vendor/bin/phpstan analyse src",
         "test": "./vendor/bin/phpunit src"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "sort-packages": true,
         "process-timeout": 600
