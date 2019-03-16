@@ -8,8 +8,8 @@
     },
     "require": {
         "php": "^7.2",
-        "brandembassy/ui-components": "2.2.1",
-        "nette/forms": "3.0"
+        "brandembassy/ui-components": "^2.4",
+        "nette/forms": "v3.0.0"
     },
     "require-dev": {
         "brandembassy/coding-standard": "^5.3",

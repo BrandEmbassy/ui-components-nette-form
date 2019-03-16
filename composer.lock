@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b288bb3aedfaba4672492a5cb283eb9d",
+    "content-hash": "6c767a91a9ad226335d3f7643a5ef653",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -63,16 +63,16 @@
         },
         {
             "name": "brandembassy/ui-components",
-            "version": "2.2.1",
+            "version": "2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BrandEmbassy/ui-components.git",
-                "reference": "70097a6165947a0fb3d54a04cd9df2ed5d08bcb5"
+                "reference": "a4021d69a697ab6320aaa32d1eea7096826b4b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/70097a6165947a0fb3d54a04cd9df2ed5d08bcb5",
-                "reference": "70097a6165947a0fb3d54a04cd9df2ed5d08bcb5",
+                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/a4021d69a697ab6320aaa32d1eea7096826b4b8c",
+                "reference": "a4021d69a697ab6320aaa32d1eea7096826b4b8c",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-03-16T09:45:02+00:00"
+            "time": "2019-03-16T14:49:52+00:00"
         },
         {
             "name": "marc-mabe/php-enum",
