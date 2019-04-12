@@ -15,9 +15,15 @@ final class SubmitFieldRenderer implements FieldRenderer
     public function render(IComponent $control): UiComponent
     {
         assert($control instanceof SubmitButton);
-        $button = new Button((string)$control->caption);
+        $button = $this->renderPlainSubmit($control);
 
         return new FormField($button);
+    }
+
+
+    public function renderPlainSubmit(SubmitButton $control): UiComponent
+    {
+        return new Button((string)$control->caption);
     }
 
 
