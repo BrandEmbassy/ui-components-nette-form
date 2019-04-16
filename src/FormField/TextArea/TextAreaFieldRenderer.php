@@ -45,7 +45,7 @@ final class TextAreaFieldRenderer implements FieldRenderer
         $name = $textArea->getHtmlName();
         $value = StringEscaper::escapeHtml($textArea->getValue());
 
-        return new TextareaComponent($name, $value, $rows);
+        return new TextareaComponent($name, $value, $rows, $textArea->isDisabled());
     }
 
 

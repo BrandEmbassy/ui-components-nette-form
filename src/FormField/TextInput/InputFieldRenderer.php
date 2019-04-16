@@ -57,7 +57,8 @@ final class InputFieldRenderer
             $this->getInputDescription($textInput),
             $hasError,
             $inputSize,
-            $placeholder
+            $placeholder,
+            $textInput->isDisabled()
         );
     }
 

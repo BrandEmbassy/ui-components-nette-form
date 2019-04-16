@@ -53,7 +53,14 @@ final class SelectBoxFieldRenderer implements FieldRenderer
 
         $type = SelectboxType::byValue(SelectboxType::WIDE);
 
-        return new Selectbox($options, $selectBox->getHtmlName(), $type, $description, $isError);
+        return new Selectbox(
+            $options,
+            $selectBox->getHtmlName(),
+            $type,
+            $description,
+            $isError,
+            $selectBox->isDisabled()
+        );
     }
 
 
