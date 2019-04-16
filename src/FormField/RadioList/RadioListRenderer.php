@@ -37,7 +37,7 @@ final class RadioListRenderer implements FieldRenderer
         foreach ($control->getItems() as $value => $label) {
             $isChecked = $value === $control->getValue();
             $id = sprintf('%s_%s', $control->getHtmlName(), $value);
-            $radios[] = new Radio($label, $id, $control->getHtmlName(), $value, $isChecked);
+            $radios[] = new Radio($label, $id, $control->getHtmlName(), $value, $isChecked, $control->isDisabled());
         }
 
         return $radios;
