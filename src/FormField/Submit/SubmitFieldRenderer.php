@@ -23,7 +23,7 @@ final class SubmitFieldRenderer implements FieldRenderer
 
     public function renderPlainSubmit(SubmitButton $control): UiComponent
     {
-        return new Button((string)$control->caption);
+        return new Button((string)$control->caption, null, null, null, $control->isDisabled());
     }
 
 
