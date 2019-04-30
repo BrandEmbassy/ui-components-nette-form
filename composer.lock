@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c767a91a9ad226335d3f7643a5ef653",
+    "content-hash": "ec6b4cc69cd78cd56dce2cd649df1f7e",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -63,16 +63,16 @@
         },
         {
             "name": "brandembassy/ui-components",
-            "version": "2.4.2",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BrandEmbassy/ui-components.git",
-                "reference": "2f7c3362e8947210f290f89368c29a4b4f451f37"
+                "reference": "280f275329ffc0944f13d84cf87eec306914f494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/2f7c3362e8947210f290f89368c29a4b4f451f37",
-                "reference": "2f7c3362e8947210f290f89368c29a4b4f451f37",
+                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/280f275329ffc0944f13d84cf87eec306914f494",
+                "reference": "280f275329ffc0944f13d84cf87eec306914f494",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-04-17T14:48:47+00:00"
+            "time": "2019-04-30T09:17:23+00:00"
         },
         {
             "name": "marc-mabe/php-enum",
