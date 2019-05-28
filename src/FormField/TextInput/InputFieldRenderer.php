@@ -52,7 +52,7 @@ final class InputFieldRenderer
 
         return new Input(
             $textInput->getHtmlName(),
-            $textInput->getValue(),
+            (string)$textInput->getValue(),
             $type,
             $this->getInputDescription($textInput),
             $hasError,
