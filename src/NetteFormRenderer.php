@@ -13,7 +13,7 @@ use function count;
 use function get_class;
 use function sprintf;
 
-final class NetteFormRenderer
+final class NetteFormRenderer implements FormRenderer
 {
     /**
      * @var FieldRenderer[]
