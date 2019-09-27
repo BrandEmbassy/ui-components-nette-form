@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "ec6b4cc69cd78cd56dce2cd649df1f7e",
@@ -63,16 +63,16 @@
         },
         {
             "name": "brandembassy/ui-components",
-            "version": "3.0.0",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BrandEmbassy/ui-components.git",
-                "reference": "280f275329ffc0944f13d84cf87eec306914f494"
+                "reference": "a1755253fc7f6253793a2c92729dad4d60475111"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/280f275329ffc0944f13d84cf87eec306914f494",
-                "reference": "280f275329ffc0944f13d84cf87eec306914f494",
+                "url": "https://api.github.com/repos/BrandEmbassy/ui-components/zipball/a1755253fc7f6253793a2c92729dad4d60475111",
+                "reference": "a1755253fc7f6253793a2c92729dad4d60475111",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "zendframework/zend-escaper": "^2.6"
             },
             "require-dev": {
-                "brandembassy/coding-standard": "^5.2",
+                "brandembassy/coding-standard": "^6.0",
                 "guzzlehttp/psr7": "^1.4",
                 "mockery/mockery": "^1.2",
                 "phpunit/phpunit": "^8",
@@ -99,7 +99,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-04-30T09:17:23+00:00"
+            "time": "2019-09-27T14:27:19+00:00"
         },
         {
             "name": "marc-mabe/php-enum",
