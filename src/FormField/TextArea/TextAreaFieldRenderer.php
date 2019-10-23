@@ -44,10 +44,14 @@ final class TextAreaFieldRenderer implements FieldRenderer
         $rows = $prototype->getAttribute('rows');
         $name = $textArea->getHtmlName();
         $value = StringEscaper::escapeHtml($textArea->getValue());
-        $description = $textArea->getError() ?? '';
         $hasError = $textArea->getError() !== null;
+        if ($hasError) {
+            $fieldDescription = $textArea->getError();
+        } else {
+            $fieldDescription = $textArea->getOption(OptionField::DESCRIPTION, '');
+        }
 
-        return new TextareaComponent($name, $value, $rows, $textArea->isDisabled(), $description, $hasError);
+        return new TextareaComponent($name, $value, $rows, $textArea->isDisabled(), $fieldDescription, $hasError);
     }
 
 
