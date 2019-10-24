@@ -9,12 +9,12 @@ use BrandEmbassy\Components\Grid\GridRow;
 use BrandEmbassy\Components\NetteForm\FormField;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
 use BrandEmbassy\Components\NetteForm\OptionField;
-use BrandEmbassy\Components\StringEscaper;
 use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
 use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\TextArea;
 use function assert;
+use function is_numeric;
 
 final class TextAreaFieldRenderer implements FieldRenderer
 {
@@ -41,9 +41,8 @@ final class TextAreaFieldRenderer implements FieldRenderer
     public function renderPlainTextArea(TextArea $textArea): UiComponent
     {
         $prototype = $textArea->getControlPrototype();
-        $rows = $prototype->getAttribute('rows');
-        $name = $textArea->getHtmlName();
-        $value = StringEscaper::escapeHtml($textArea->getValue());
+        $rowsAttribute = $prototype->getAttribute('rows');
+        assert(is_numeric($rowsAttribute), 'Rows attribute must be an integer.');
         $hasError = $textArea->getError() !== null;
         if ($hasError) {
             $fieldDescription = $textArea->getError();
@@ -51,7 +50,15 @@ final class TextAreaFieldRenderer implements FieldRenderer
             $fieldDescription = $textArea->getOption(OptionField::DESCRIPTION, '');
         }
 
-        return new TextareaComponent($name, $value, $rows, $textArea->isDisabled(), $fieldDescription, $hasError);
+        return new TextareaComponent(
+            $textArea->getHtmlName(),
+            $textArea->getValue() ?? '',
+            (int)$rowsAttribute,
+            $textArea->isDisabled(),
+            $fieldDescription,
+            $hasError,
+            $prototype->getAttribute('placeholder')
+        );
     }
 
 
