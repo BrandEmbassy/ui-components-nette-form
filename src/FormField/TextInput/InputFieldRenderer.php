@@ -63,7 +63,11 @@ final class InputFieldRenderer
     }
 
 
-    private function getInputDescription(TextInput $textInput): string
+    /**
+     * @param TextInput $textInput
+     * @return string|UiComponent
+     */
+    private function getInputDescription(TextInput $textInput)
     {
         $inputDescription = $textInput->getOption(OptionField::INPUT_DESCRIPTION) ?? '';
         $error = $textInput->getError();
