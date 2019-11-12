@@ -42,6 +42,7 @@ final class TextAreaFieldRenderer implements FieldRenderer
     {
         $prototype = $textArea->getControlPrototype();
         $rowsAttribute = $prototype->getAttribute('rows');
+        $placeholder = $textArea->getOption(OptionField::PLACEHOLDER, '');
         assert(is_numeric($rowsAttribute), 'Rows attribute must be an integer.');
         $hasError = $textArea->getError() !== null;
         if ($hasError) {
@@ -57,7 +58,7 @@ final class TextAreaFieldRenderer implements FieldRenderer
             $textArea->isDisabled(),
             $fieldDescription,
             $hasError,
-            $prototype->getAttribute('placeholder')
+            $placeholder
         );
     }
 
