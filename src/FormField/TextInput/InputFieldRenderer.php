@@ -45,10 +45,10 @@ final class InputFieldRenderer
     public function renderPlainInput(
         TextInput $textInput,
         InputType $type,
-        InputSize $inputSize,
-        string $placeholder = ''
+        InputSize $inputSize
     ): UiComponent {
         $hasError = $textInput->getError() !== null;
+        $placeholder = $textInput->getOption(OptionField::PLACEHOLDER) ?? '';
 
         return new Input(
             $textInput->getHtmlName(),
@@ -57,13 +57,17 @@ final class InputFieldRenderer
             $this->getInputDescription($textInput),
             $hasError,
             $inputSize,
-            $placeholder,
+            (string)$placeholder,
             $textInput->isDisabled()
         );
     }
 
 
-    private function getInputDescription(TextInput $textInput): string
+    /**
+     * @param TextInput $textInput
+     * @return string|UiComponent
+     */
+    private function getInputDescription(TextInput $textInput)
     {
         $inputDescription = $textInput->getOption(OptionField::INPUT_DESCRIPTION) ?? '';
         $error = $textInput->getError();
