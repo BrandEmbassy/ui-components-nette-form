@@ -11,4 +11,5 @@ final class OptionField
     public const DESCRIPTION = 'description';
     public const INPUT_DESCRIPTION = 'inputDescription';
     public const PLACEHOLDER = 'placeholder';
+    public const READONLY = 'readonly';
 }

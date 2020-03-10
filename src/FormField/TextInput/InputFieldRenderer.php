@@ -50,6 +50,8 @@ final class InputFieldRenderer
         $hasError = $textInput->getError() !== null;
         $placeholder = $textInput->getOption(OptionField::PLACEHOLDER) ?? '';
 
+        $readOnly = $textInput->getOption(OptionField::READONLY, false);
+
         return new Input(
             $textInput->getHtmlName(),
             (string)$textInput->getValue(),
@@ -58,7 +60,8 @@ final class InputFieldRenderer
             $hasError,
             $inputSize,
             (string)$placeholder,
-            $textInput->isDisabled()
+            $textInput->isDisabled(),
+            $readOnly
         );
     }
 
