@@ -8,7 +8,7 @@
     },
     "require": {
         "php": "^7.2",
-        "brandembassy/ui-components": "^3.4",
+        "brandembassy/ui-components": "^3.7",
         "nette/forms": "v3.0.0"
     },
     "require-dev": {
