@@ -20,7 +20,11 @@ final class UiComponentsRenderer implements FieldRenderer
         $wrappedUiComponents = [];
         foreach ($control->getUiComponents() as $uiComponent) {
             $wrappedUiComponents[] = new GridRow(
-                new GridColumn($uiComponent, [], [UtilitiesOption::get(UtilitiesOption::PADDING_0)])
+                new GridColumn(
+                    $uiComponent,
+                    [GridColumnOption::get(GridColumnOption::XS_12)],
+                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+                )
             );
         }
 
