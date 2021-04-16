@@ -48,7 +48,7 @@ final class TextAreaFieldRenderer implements FieldRenderer
         if ($hasError) {
             $fieldDescription = $textArea->getError();
         } else {
-            $fieldDescription = $textArea->getOption(OptionField::DESCRIPTION, '');
+            $fieldDescription = $textArea->getOption(OptionField::INPUT_DESCRIPTION, '');
         }
 
         return new TextareaComponent(
