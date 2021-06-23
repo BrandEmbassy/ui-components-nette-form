@@ -19,7 +19,6 @@ final class CheckboxListWithIconsFormField extends CheckboxList
 
 
     /**
-     * @param string             $label
      * @param CheckBoxListItem[] $checkBoxListRowData
      * @param UiComponent|string $formFieldDescription
      */

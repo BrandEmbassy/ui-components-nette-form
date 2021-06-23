@@ -28,7 +28,6 @@ final class RadioListRenderer implements FieldRenderer
 
 
     /**
-     * @param RadioList $control
      * @return Radio[]
      */
     public function renderPlainRadios(RadioList $control): array

@@ -29,8 +29,6 @@ final class FormField implements UiComponent
 
 
     /**
-     * @param UiComponent        $children
-     * @param string             $header
      * @param UiComponent|string $description
      */
     public function __construct(UiComponent $children, string $header = '', $description = '')

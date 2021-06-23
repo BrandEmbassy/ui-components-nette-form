@@ -28,7 +28,6 @@ final class CheckboxListWithIconsFormFieldRenderer implements FieldRenderer
 
 
     /**
-     * @param CheckboxListWithIconsFormField $control
      * @return CheckBoxListItem[]
      */
     private function createRowDataFromDefaultValues(CheckboxListWithIconsFormField $control): array

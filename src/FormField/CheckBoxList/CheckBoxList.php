@@ -22,7 +22,6 @@ final class CheckBoxList implements UiComponent
 
 
     /**
-     * @param string             $name
      * @param CheckBoxListItem[] $itemsData
      */
     public function __construct(string $name, array $itemsData)
@@ -41,7 +40,7 @@ final class CheckBoxList implements UiComponent
 
                 $avatar = $rowData->getAvatar();
                 if ($avatar !== null) {
-                    $children[] = $rowData->getAvatar() ?: '';
+                    $children[] = $rowData->getAvatar() ?? '';
                 }
 
                 $checkbox = new Checkbox(
