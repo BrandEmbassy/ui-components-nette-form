@@ -71,7 +71,6 @@ final class SelectBoxFieldRenderer implements FieldRenderer
 
 
     /**
-     * @param NetteSelectBox $selectBox
      * @return SelectboxOption[]
      */
     public function createOptions(NetteSelectBox $selectBox): array

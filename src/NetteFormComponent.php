@@ -27,7 +27,6 @@ final class NetteFormComponent implements UiComponent
 
 
     /**
-     * @param Form          $form
      * @param UiComponent[] $elements
      * @param UiComponent[] $errorComponents
      */

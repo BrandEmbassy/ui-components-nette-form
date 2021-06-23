@@ -17,10 +17,7 @@ use Nette\Forms\Controls\TextInput;
 final class InputFieldRenderer
 {
     /**
-     * @param TextInput          $textInput
-     * @param InputType          $type
      * @param GridColumnOption[] $gridColumnOptions
-     * @return UiComponent
      */
     public function render(TextInput $textInput, InputType $type, array $gridColumnOptions): UiComponent
     {
@@ -67,7 +64,6 @@ final class InputFieldRenderer
 
 
     /**
-     * @param TextInput $textInput
      * @return string|UiComponent
      */
     private function getInputDescription(TextInput $textInput)
