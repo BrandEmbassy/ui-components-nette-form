@@ -16,14 +16,12 @@ final class FileUploadFieldRenderer implements FieldRenderer
     {
         assert($control instanceof UploadControl);
 
-        $value = $control->getValue() ?? '';
         $placeholder = $control->getOption(OptionField::PLACEHOLDER) ?? '';
         $hasError = $control->getError() !== null;
 
         return new FileUpload(
             $control->getHtmlId(),
             $control->getHtmlName(),
-            $value,
             $placeholder,
             $acceptAttributeValue,
             $isMultiple,
