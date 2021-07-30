@@ -12,7 +12,7 @@ use function assert;
 
 final class FileUploadFieldRenderer implements FieldRenderer
 {
-    public function render(IComponent $control, string $accept = '', bool $isMultiple = false): UiComponent
+    public function render(IComponent $control, string $acceptAttributeValue = '', bool $isMultiple = false): UiComponent
     {
         assert($control instanceof UploadControl);
 
@@ -25,7 +25,7 @@ final class FileUploadFieldRenderer implements FieldRenderer
             $control->getHtmlName(),
             $value,
             $placeholder,
-            $accept,
+            $acceptAttributeValue,
             $isMultiple,
             $hasError
         );
