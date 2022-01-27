@@ -8,6 +8,7 @@ use BrandEmbassy\Components\Grid\GridColumn\GridColumnOption;
 use BrandEmbassy\Components\Grid\GridRow;
 use BrandEmbassy\Components\NetteForm\FormField;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\NetteForm\OptionField;
 use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
@@ -51,6 +52,8 @@ final class TextAreaFieldRenderer implements FieldRenderer
             $fieldDescription = $textArea->getOption(OptionField::INPUT_DESCRIPTION, '');
         }
 
+        $attributesProvider = new NetteHtmlDataAttributesProvider($prototype);
+
         return new TextareaComponent(
             $textArea->getHtmlName(),
             $textArea->getValue() ?? '',
@@ -58,7 +61,8 @@ final class TextAreaFieldRenderer implements FieldRenderer
             $textArea->isDisabled(),
             $fieldDescription,
             $hasError,
-            $placeholder
+            $placeholder,
+            $attributesProvider->findDataAttributes()
         );
     }
 
