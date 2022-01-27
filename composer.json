@@ -9,7 +9,7 @@
     "require": {
         "php": "^7.2",
         "beberlei/assert": "^3",
-        "brandembassy/ui-components": "^5.0",
+        "brandembassy/ui-components": "^5.0.5",
         "nette/forms": "^3.0.0"
     },
     "require-dev": {
