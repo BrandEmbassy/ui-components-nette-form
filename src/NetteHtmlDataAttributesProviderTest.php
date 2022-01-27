@@ -5,6 +5,7 @@ namespace BrandEmbassy\Components\NetteForm;
 use Nette\Utils\Html;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use function assert;
 
 final class NetteHtmlDataAttributesProviderTest extends TestCase
 {

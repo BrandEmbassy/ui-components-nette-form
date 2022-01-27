@@ -8,6 +8,7 @@ use Nette\Utils\Html;
 use Nette\Utils\Strings;
 use function array_filter;
 use function is_array;
+use const ARRAY_FILTER_USE_KEY;
 
 final class NetteHtmlDataAttributesProvider
 {
