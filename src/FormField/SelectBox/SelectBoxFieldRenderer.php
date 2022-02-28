@@ -17,7 +17,10 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\SelectBox as NetteSelectBox;
 use function assert;
 
-final class SelectBoxFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class SelectBoxFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

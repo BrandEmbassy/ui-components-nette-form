@@ -13,7 +13,10 @@ use Nette\Forms\Controls\RadioList;
 use function assert;
 use function sprintf;
 
-final class RadioListRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class RadioListRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

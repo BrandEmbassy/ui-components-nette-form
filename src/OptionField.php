@@ -4,7 +4,10 @@ namespace BrandEmbassy\Components\NetteForm;
 
 use Nette\StaticClass;
 
-final class OptionField
+/**
+ * @final
+ */
+class OptionField
 {
     use StaticClass;
 

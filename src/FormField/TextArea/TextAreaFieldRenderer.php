@@ -17,7 +17,10 @@ use Nette\Forms\Controls\TextArea;
 use function assert;
 use function is_numeric;
 
-final class TextAreaFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class TextAreaFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

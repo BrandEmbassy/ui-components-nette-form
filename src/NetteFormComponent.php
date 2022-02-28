@@ -8,22 +8,22 @@ use Nette\Forms\Form;
 use Nette\Forms\Rendering\DefaultFormRenderer;
 use function assert;
 
-final class NetteFormComponent implements UiComponent
+/**
+ * @final
+ */
+class NetteFormComponent implements UiComponent
 {
-    /**
-     * @var Form
-     */
-    private $form;
+    private Form $form;
 
     /**
      * @var UiComponent[]
      */
-    private $elements;
+    private array $elements;
 
     /**
      * @var UiComponent[]
      */
-    private $errorComponents;
+    private array $errorComponents;
 
 
     /**

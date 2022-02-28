@@ -14,7 +14,10 @@ use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
 use Nette\Forms\Controls\TextInput;
 
-final class InputFieldRenderer
+/**
+ * @final
+ */
+class InputFieldRenderer
 {
     /**
      * @param GridColumnOption[] $gridColumnOptions

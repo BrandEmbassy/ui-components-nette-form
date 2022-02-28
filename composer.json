@@ -7,13 +7,13 @@
         }
     },
     "require": {
-        "php": "^7.2",
+        "php": ">=7.4",
         "beberlei/assert": "^3",
-        "brandembassy/ui-components": "^5.0.5",
+        "brandembassy/ui-components": "^5.1",
         "nette/forms": "^3.0.0"
     },
     "require-dev": {
-        "brandembassy/coding-standard": "^8.1",
+        "brandembassy/coding-standard": "^8.6",
         "mockery/mockery": "^1.2",
         "phpunit/phpunit": "^8",
         "roave/security-advisories": "dev-master"

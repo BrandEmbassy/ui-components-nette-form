@@ -2,17 +2,14 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\SelectBox;
 
-final class SelectBoxOptionDataRow
+/**
+ * @final
+ */
+class SelectBoxOptionDataRow
 {
-    /**
-     * @var string
-     */
-    private $key;
+    private string $key;
 
-    /**
-     * @var string
-     */
-    private $value;
+    private string $value;
 
 
     public function __construct(string $key, string $value)

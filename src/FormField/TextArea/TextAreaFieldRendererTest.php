@@ -8,7 +8,10 @@ use Nette\Utils\FileSystem;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class TextAreaFieldRendererTest extends TestCase
+/**
+ * @final
+ */
+class TextAreaFieldRendererTest extends TestCase
 {
     public function testRenderingPlainTextArea(): void
     {

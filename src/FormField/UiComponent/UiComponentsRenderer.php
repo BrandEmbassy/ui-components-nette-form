@@ -11,7 +11,10 @@ use BrandEmbassy\Components\Utilities\UtilitiesOption;
 use Nette\ComponentModel\IComponent;
 use function assert;
 
-final class UiComponentsRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class UiComponentsRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

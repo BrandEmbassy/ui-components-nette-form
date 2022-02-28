@@ -7,7 +7,10 @@ use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 use function assert;
 
-final class NetteHtmlDataAttributesProviderTest extends TestCase
+/**
+ * @final
+ */
+class NetteHtmlDataAttributesProviderTest extends TestCase
 {
     private const EXPECTED_DATA_ATTRIBUTES_HTML = 'data-first=\'string-value\' data-second=\'{"json":"value"}\'';
 

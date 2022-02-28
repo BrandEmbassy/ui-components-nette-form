@@ -9,7 +9,10 @@ use Nette\ComponentModel\IComponent;
 use function assert;
 use function in_array;
 
-final class CheckboxListWithIconsFormFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class CheckboxListWithIconsFormFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

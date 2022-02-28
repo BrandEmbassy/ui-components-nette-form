@@ -11,12 +11,12 @@ use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
 use function assert;
 
-final class DateInputFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class DateInputFieldRenderer implements FieldRenderer
 {
-    /**
-     * @var InputFieldRenderer
-     */
-    private $inputFieldRenderer;
+    private InputFieldRenderer $inputFieldRenderer;
 
 
     public function __construct(InputFieldRenderer $inputFieldRenderer)

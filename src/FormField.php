@@ -10,17 +10,14 @@ use BrandEmbassy\Components\Typography\HeadingLevel;
 use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
 
-final class FormField implements UiComponent
+/**
+ * @final
+ */
+class FormField implements UiComponent
 {
-    /**
-     * @var UiComponent
-     */
-    private $children;
+    private UiComponent $children;
 
-    /**
-     * @var string
-     */
-    private $header;
+    private string $header;
 
     /**
      * @var UiComponent|string
