@@ -5,7 +5,10 @@ namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 use Nette\Forms\Controls\TextInput;
 use Nette\Forms\Form;
 
-final class DateInputField extends TextInput
+/**
+ * @final
+ */
+class DateInputField extends TextInput
 {
     public function __construct(?string $label = null, ?int $maxLength = null)
     {

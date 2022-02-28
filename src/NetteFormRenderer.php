@@ -13,12 +13,15 @@ use function count;
 use function get_class;
 use function sprintf;
 
-final class NetteFormRenderer implements FormRenderer
+/**
+ * @final
+ */
+class NetteFormRenderer implements FormRenderer
 {
     /**
      * @var FieldRenderer[]
      */
-    private $renderers;
+    private array $renderers;
 
 
     /**

@@ -10,7 +10,10 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\UploadControl;
 use function assert;
 
-final class FileUploadFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class FileUploadFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control, string $acceptAttributeValue = '', bool $isMultiple = false): UiComponent
     {

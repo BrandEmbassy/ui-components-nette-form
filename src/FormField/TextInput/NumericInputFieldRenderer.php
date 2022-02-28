@@ -11,12 +11,12 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\TextInput;
 use function assert;
 
-final class NumericInputFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class NumericInputFieldRenderer implements FieldRenderer
 {
-    /**
-     * @var InputFieldRenderer
-     */
-    private $inputFieldRenderer;
+    private InputFieldRenderer $inputFieldRenderer;
 
 
     public function __construct(InputFieldRenderer $inputFieldRenderer)

@@ -5,12 +5,15 @@ namespace BrandEmbassy\Components\NetteForm\FormField\CheckBoxList;
 use BrandEmbassy\Components\UiComponent;
 use Nette\Forms\Controls\CheckboxList;
 
-final class CheckboxListWithIconsFormField extends CheckboxList
+/**
+ * @final
+ */
+class CheckboxListWithIconsFormField extends CheckboxList
 {
     /**
      * @var CheckBoxListItem[]
      */
-    private $checkBoxListRowData;
+    private array $checkBoxListRowData;
 
     /**
      * @var UiComponent|string

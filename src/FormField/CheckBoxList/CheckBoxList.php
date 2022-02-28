@@ -8,17 +8,17 @@ use BrandEmbassy\Components\SelectList\SelectListItem;
 use BrandEmbassy\Components\UiComponent;
 use function array_map;
 
-final class CheckBoxList implements UiComponent
+/**
+ * @final
+ */
+class CheckBoxList implements UiComponent
 {
     /**
      * @var CheckBoxListItem[]
      */
-    private $rowsData;
+    private array $rowsData;
 
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
 
     /**

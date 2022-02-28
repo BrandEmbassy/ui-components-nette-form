@@ -4,6 +4,9 @@ namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 
 use Nette\Forms\Controls\TextInput;
 
-final class LongTextInputField extends TextInput
+/**
+ * @final
+ */
+class LongTextInputField extends TextInput
 {
 }

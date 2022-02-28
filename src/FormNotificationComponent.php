@@ -6,22 +6,16 @@ use BrandEmbassy\Components\Notification\NotificationMessage;
 use BrandEmbassy\Components\Notification\NotificationType;
 use BrandEmbassy\Components\UiComponent;
 
-final class FormNotificationComponent implements UiComponent
+/**
+ * @final
+ */
+class FormNotificationComponent implements UiComponent
 {
-    /**
-     * @var string
-     */
-    private $message;
+    private string $message;
 
-    /**
-     * @var NotificationType
-     */
-    private $type;
+    private NotificationType $type;
 
-    /**
-     * @var bool
-     */
-    private $fixed;
+    private bool $fixed;
 
 
     public function __construct(string $message, NotificationType $type, bool $fixed)

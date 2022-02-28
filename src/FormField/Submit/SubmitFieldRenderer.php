@@ -10,7 +10,10 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\SubmitButton;
 use function assert;
 
-final class SubmitFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class SubmitFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

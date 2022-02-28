@@ -9,7 +9,10 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\Checkbox;
 use function assert;
 
-final class CheckBoxFormFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class CheckBoxFormFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

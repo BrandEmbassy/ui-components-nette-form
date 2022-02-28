@@ -4,27 +4,18 @@ namespace BrandEmbassy\Components\NetteForm\FormField\CheckBoxList;
 
 use BrandEmbassy\Components\UiComponent;
 
-final class CheckBoxListItem
+/**
+ * @final
+ */
+class CheckBoxListItem
 {
-    /**
-     * @var string
-     */
-    private $id;
+    private string $id;
 
-    /**
-     * @var string
-     */
-    private $labelText;
+    private string $labelText;
 
-    /**
-     * @var UiComponent|null
-     */
-    private $avatar;
+    private ?UiComponent $avatar = null;
 
-    /**
-     * @var bool
-     */
-    private $selected;
+    private bool $selected;
 
 
     public function __construct(string $id, string $labelText, bool $selected = false, ?UiComponent $avatar = null)

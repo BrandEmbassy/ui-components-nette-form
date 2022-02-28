@@ -9,7 +9,10 @@ use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\HiddenField;
 use function assert;
 
-final class HiddenInputFieldRenderer implements FieldRenderer
+/**
+ * @final
+ */
+class HiddenInputFieldRenderer implements FieldRenderer
 {
     public function render(IComponent $control): UiComponent
     {

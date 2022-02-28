@@ -6,12 +6,15 @@ use Assert\Assertion;
 use BrandEmbassy\Components\UiComponent;
 use Nette\Forms\Container;
 
-final class UiComponentsFormContainer extends Container
+/**
+ * @final
+ */
+class UiComponentsFormContainer extends Container
 {
     /**
      * @var UiComponent[]
      */
-    private $uiComponents;
+    private array $uiComponents;
 
 
     /**

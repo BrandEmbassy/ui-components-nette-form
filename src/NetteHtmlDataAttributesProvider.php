@@ -10,12 +10,12 @@ use function array_filter;
 use function is_array;
 use const ARRAY_FILTER_USE_KEY;
 
-final class NetteHtmlDataAttributesProvider
+/**
+ * @final
+ */
+class NetteHtmlDataAttributesProvider
 {
-    /**
-     * @var Html
-     */
-    private $html;
+    private Html $html;
 
 
     public function __construct(Html $html)

@@ -7,7 +7,10 @@ use BrandEmbassy\Components\Typography\Paragraph;
 use Nette\Forms\Controls\TextInput;
 use Nette\Forms\Form;
 
-final class NumericInputField extends TextInput
+/**
+ * @final
+ */
+class NumericInputField extends TextInput
 {
     private const TYPE_NUMBER = 'number';
     private const VALUE_MIN = 'min';
