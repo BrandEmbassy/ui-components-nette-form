@@ -37,7 +37,7 @@ class SelectBoxFieldRenderer implements FieldRenderer
         ];
 
         $gridRow = new GridRow(
-            new GridColumn($selectBoxComponent, $columnOptions, [UtilitiesOption::get(UtilitiesOption::PADDING_0)])
+            new GridColumn($selectBoxComponent, $columnOptions, [UtilitiesOption::get(UtilitiesOption::PADDING_0)]),
         );
 
         return new FormField($gridRow, (string)$control->caption, $fieldDescription);
@@ -62,7 +62,7 @@ class SelectBoxFieldRenderer implements FieldRenderer
             $type,
             $description,
             $isError,
-            $selectBox->isDisabled()
+            $selectBox->isDisabled(),
         );
     }
 

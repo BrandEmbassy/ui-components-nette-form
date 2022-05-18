@@ -26,8 +26,8 @@ class UiComponentsRenderer implements FieldRenderer
                 new GridColumn(
                     $uiComponent,
                     [GridColumnOption::get(GridColumnOption::XS_12)],
-                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
-                )
+                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
+                ),
             );
         }
 
@@ -35,10 +35,10 @@ class UiComponentsRenderer implements FieldRenderer
             new GridColumn(
                 $wrappedUiComponents,
                 [GridColumnOption::get(GridColumnOption::XS_12)],
-                [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+                [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
             ),
             [],
-            [UtilitiesOption::get(UtilitiesOption::PADDING_10)]
+            [UtilitiesOption::get(UtilitiesOption::PADDING_10)],
         );
     }
 

@@ -28,7 +28,7 @@ class FileUploadFieldRenderer implements FieldRenderer
             $placeholder,
             $acceptAttributeValue,
             $isMultiple,
-            $hasError
+            $hasError,
         );
     }
 

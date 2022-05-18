@@ -25,7 +25,7 @@ class CheckBoxFormFieldRenderer implements FieldRenderer
             $control->getHtmlName(),
             $control->getHtmlName(),
             $control->getValue(),
-            $control->isDisabled()
+            $control->isDisabled(),
         );
     }
 

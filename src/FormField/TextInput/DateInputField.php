@@ -18,7 +18,7 @@ class DateInputField extends TextInput
             ->addRule(
                 Form::PATTERN,
                 'Specified value is not valid date. Expected format is yyyy-mm-dd.',
-                '\d{4}-\d{1,2}-\d{1,2}'
+                '\d{4}-\d{1,2}-\d{1,2}',
             );
     }
 }

@@ -26,9 +26,7 @@ class NetteHtmlDataAttributesProvider
 
     public function findDataAttributes(): ?DataAttributes
     {
-        $rawDataAttributes = array_filter($this->html->attrs, static function (string $key): bool {
-            return Strings::startsWith($key, 'data-');
-        }, ARRAY_FILTER_USE_KEY);
+        $rawDataAttributes = array_filter($this->html->attrs, static fn(string $key): bool => Strings::startsWith($key, 'data-'), ARRAY_FILTER_USE_KEY);
 
         if ($rawDataAttributes === []) {
             return null;

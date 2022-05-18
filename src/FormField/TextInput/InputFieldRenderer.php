@@ -31,13 +31,13 @@ class InputFieldRenderer
         $column = new GridColumn(
             $inputComponent,
             $gridColumnOptions,
-            [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+            [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
         );
 
         return new FormField(
             new GridRow($column),
             (string)$textInput->caption,
-            $fieldDescription
+            $fieldDescription,
         );
     }
 
@@ -61,7 +61,7 @@ class InputFieldRenderer
             $inputSize,
             (string)$placeholder,
             $textInput->isDisabled(),
-            $readOnly
+            $readOnly,
         );
     }
 
