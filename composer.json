@@ -14,6 +14,7 @@
     },
     "require-dev": {
         "brandembassy/coding-standard": "^8.6",
+        "brandembassy/mockery-tools": "3.9",
         "mockery/mockery": "^1.2",
         "phpunit/phpunit": "^8",
         "roave/security-advisories": "dev-master"
@@ -28,6 +29,9 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "process-timeout": 600
+        "process-timeout": 600,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

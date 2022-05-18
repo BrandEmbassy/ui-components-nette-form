@@ -49,12 +49,12 @@ class CheckBoxList implements UiComponent
                     $this->name . '-' . $rowData->getId(),
                     $this->name,
                     $rowData->getId(),
-                    $rowData->isSelected()
+                    $rowData->isSelected(),
                 );
 
                 return new SelectListItem([$checkbox]);
             },
-            $this->rowsData
+            $this->rowsData,
         );
 
         return (new SelectList($rows))->render();

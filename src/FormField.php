@@ -51,18 +51,18 @@ class FormField implements UiComponent
                 new GridColumn(
                     $descriptionElements,
                     [GridColumnOption::byValue(GridColumnOption::XS_12)],
-                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
                 ),
                 new GridColumn(
                     $this->children,
                     [GridColumnOption::byValue(GridColumnOption::XS_12)],
-                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+                    [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
                 ),
             ],
             [],
             [
                 UtilitiesOption::byValue(UtilitiesOption::PADDING_10),
-            ]
+            ],
         );
 
         return $row->render();

@@ -18,7 +18,7 @@ class TimeInputField extends TextInput
             ->addRule(
                 Form::PATTERN,
                 'Specified value is not valid time. Expected format is hh:mm.',
-                '\d{1,2}:\d{1,2}'
+                '\d{1,2}:\d{1,2}',
             );
     }
 }

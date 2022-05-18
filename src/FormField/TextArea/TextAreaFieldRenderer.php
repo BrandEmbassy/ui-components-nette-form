@@ -35,7 +35,7 @@ class TextAreaFieldRenderer implements FieldRenderer
         $column = new GridColumn(
             $inputComponent,
             $gridColumnOptions,
-            [UtilitiesOption::get(UtilitiesOption::PADDING_0)]
+            [UtilitiesOption::get(UtilitiesOption::PADDING_0)],
         );
 
         return new FormField(new GridRow($column), (string)$control->caption, $fieldDescription);
@@ -65,7 +65,7 @@ class TextAreaFieldRenderer implements FieldRenderer
             $fieldDescription,
             $hasError,
             $placeholder,
-            $attributesProvider->findDataAttributes()
+            $attributesProvider->findDataAttributes(),
         );
     }
 

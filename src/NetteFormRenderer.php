@@ -56,7 +56,7 @@ class NetteFormRenderer implements FormRenderer
             $errorComponents[] = new FormNotificationComponent(
                 'There is an error in your submission. Please correct the highlighted fields below.',
                 NotificationType::byValue(NotificationType::ERROR),
-                NotificationMessage::FIXED
+                NotificationMessage::FIXED,
             );
         }
 
