@@ -10,6 +10,7 @@ use BrandEmbassy\Components\Grid\GridColumn\GridColumnOption;
 use BrandEmbassy\Components\Grid\GridRow;
 use BrandEmbassy\Components\NetteForm\FormField;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\NetteForm\OptionField;
 use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
@@ -47,7 +48,6 @@ class SelectBoxFieldRenderer implements FieldRenderer
     public function renderPlainSelectBox(NetteSelectBox $selectBox): UiComponent
     {
         $options = $this->createOptions($selectBox);
-
         $inputDescription = $selectBox->getOption(OptionField::INPUT_DESCRIPTION) ?? '';
 
         $error = $selectBox->getError();
@@ -55,6 +55,7 @@ class SelectBoxFieldRenderer implements FieldRenderer
         $description = $isError ? $error : $inputDescription;
 
         $type = SelectboxType::byValue(SelectboxType::WIDE);
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
 
         return new Selectbox(
             $options,
@@ -63,6 +64,9 @@ class SelectBoxFieldRenderer implements FieldRenderer
             $description,
             $isError,
             $selectBox->isDisabled(),
+            null,
+            null,
+            $attributesProvider->findDataAttributes($selectBox),
         );
     }
 

@@ -4,6 +4,7 @@ namespace BrandEmbassy\Components\NetteForm\FormField\FileUpload;
 
 use BrandEmbassy\Components\Controls\FileUpload\FileUpload;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\NetteForm\OptionField;
 use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
@@ -19,6 +20,8 @@ class FileUploadFieldRenderer implements FieldRenderer
     {
         assert($control instanceof UploadControl);
 
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
+
         $placeholder = $control->getOption(OptionField::PLACEHOLDER) ?? '';
         $hasError = $control->getError() !== null;
 
@@ -29,6 +32,7 @@ class FileUploadFieldRenderer implements FieldRenderer
             $acceptAttributeValue,
             $isMultiple,
             $hasError,
+            $attributesProvider->findDataAttributes($control),
         );
     }
 

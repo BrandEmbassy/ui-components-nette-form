@@ -3,6 +3,7 @@
 namespace BrandEmbassy\Components\NetteForm\FormField\CheckBoxList;
 
 use BrandEmbassy\Components\Controls\Checkbox\Checkbox;
+use BrandEmbassy\Components\DataAttributes;
 use BrandEmbassy\Components\SelectList\SelectList;
 use BrandEmbassy\Components\SelectList\SelectListItem;
 use BrandEmbassy\Components\UiComponent;
@@ -20,14 +21,17 @@ class CheckBoxList implements UiComponent
 
     private string $name;
 
+    private ?DataAttributes $dataAttributes;
+
 
     /**
      * @param CheckBoxListItem[] $itemsData
      */
-    public function __construct(string $name, array $itemsData)
+    public function __construct(string $name, array $itemsData, ?DataAttributes $dataAttributes = null)
     {
         $this->name = $name;
         $this->rowsData = $itemsData;
+        $this->dataAttributes = $dataAttributes;
     }
 
 
@@ -57,6 +61,6 @@ class CheckBoxList implements UiComponent
             $this->rowsData,
         );
 
-        return (new SelectList($rows))->render();
+        return (new SelectList($rows, $this->dataAttributes))->render();
     }
 }

@@ -3,10 +3,12 @@
     <div class="padding-0 col-xs-12" data-cy='GridColumn'>
         <div class="row " data-cy='GridRow'>
             <div class="padding-0 col-xs-12 col-md-4 col-lg-2" data-cy='GridColumn'>
-                <div class="Selectbox__Selectbox Selectbox__Wide"><select name="name" data-cy='Selectbox-name'>
-                    <option value="key-1" data-cy='SelectboxOption-key-1'>item-1</option>
-                    <option value="key-2" data-cy='SelectboxOption-key-2'>item-2</option>
-                </select></div>
+                <div class="Selectbox__Selectbox Selectbox__Wide">
+                    <select name="name" {{dataAttribute}}>
+                        <option value="key-1" data-cy='SelectboxOption-key-1'>item-1</option>
+                        <option value="key-2" data-cy='SelectboxOption-key-2'>item-2</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>

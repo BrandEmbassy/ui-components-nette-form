@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DateInputFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $dateInput = new DateInputField('label');
@@ -24,6 +21,29 @@ class DateInputFieldRendererTest extends TestCase
         $renderer = new DateInputFieldRenderer(new InputFieldRenderer());
         $component = $renderer->render($dateInput);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/dateInput.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/dateInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Input-name\''],
+        );
+    }
+
+
+    public function testRenderWithDataAttribute(): void
+    {
+        $dateInput = new DateInputField('label');
+        $dateInput->setHtmlAttribute('data-attr', 'value');
+
+        $form = new Form();
+        $form->addComponent($dateInput, 'name');
+
+        $renderer = new DateInputFieldRenderer(new InputFieldRenderer());
+        $component = $renderer->render($dateInput);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/dateInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }
