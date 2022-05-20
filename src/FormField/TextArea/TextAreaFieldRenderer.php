@@ -55,7 +55,7 @@ class TextAreaFieldRenderer implements FieldRenderer
             $fieldDescription = $textArea->getOption(OptionField::INPUT_DESCRIPTION, '');
         }
 
-        $attributesProvider = new NetteHtmlDataAttributesProvider($prototype);
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
 
         return new TextareaComponent(
             $textArea->getHtmlName(),
@@ -65,7 +65,7 @@ class TextAreaFieldRenderer implements FieldRenderer
             $fieldDescription,
             $hasError,
             $placeholder,
-            $attributesProvider->findDataAttributes(),
+            $attributesProvider->findDataAttributes($textArea),
         );
     }
 
