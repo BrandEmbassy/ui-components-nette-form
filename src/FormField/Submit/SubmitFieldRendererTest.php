@@ -27,7 +27,7 @@ class SubmitFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $form = new Form();
         $submit = $form->addSubmit('name', 'caption');

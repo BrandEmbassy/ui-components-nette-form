@@ -33,7 +33,7 @@ class NumericInputFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $numericInputField = new NumericInputField('label', self::MIN_VALUE, self::MAX_VALUE);
         $numericInputField->setHtmlAttribute('data-attr', 'value');

@@ -29,7 +29,7 @@ class TimeInputFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $timeInput = new TimeInputField('label');
         $timeInput->setHtmlAttribute('data-attr', 'value');

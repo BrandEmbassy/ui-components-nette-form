@@ -29,7 +29,7 @@ class DateInputFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $dateInput = new DateInputField('label');
         $dateInput->setHtmlAttribute('data-attr', 'value');

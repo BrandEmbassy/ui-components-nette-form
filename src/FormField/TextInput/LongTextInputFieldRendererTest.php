@@ -29,7 +29,7 @@ class LongTextInputFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $longTextInput = new LongTextInputField('label');
         $longTextInput->setHtmlAttribute('data-attr', 'value');

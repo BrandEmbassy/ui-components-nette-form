@@ -27,7 +27,7 @@ class CheckBoxFormFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderingCheckBoxWithDataAttributes(): void
+    public function testRenderingCheckBoxWithCustomDataAttributes(): void
     {
         $form = new Form();
         $checkbox = $form->addCheckbox('checkBox');

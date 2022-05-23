@@ -27,7 +27,7 @@ class TextInputFieldRendererTest extends TestCase
     }
 
 
-    public function testRenderWithDataAttribute(): void
+    public function testRenderWithCustomDataAttribute(): void
     {
         $form = new Form();
         $textInput = $form->addText('name', 'label');
