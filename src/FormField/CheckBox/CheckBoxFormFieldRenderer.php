@@ -4,6 +4,7 @@ namespace BrandEmbassy\Components\NetteForm\FormField\CheckBox;
 
 use BrandEmbassy\Components\Controls\Checkbox\Checkbox as CheckboxUiComponent;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\Checkbox;
@@ -18,6 +19,8 @@ class CheckBoxFormFieldRenderer implements FieldRenderer
     {
         assert($control instanceof Checkbox);
 
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
+
         return new CheckboxUiComponent(
             [],
             (string)$control->getCaption(),
@@ -26,6 +29,7 @@ class CheckBoxFormFieldRenderer implements FieldRenderer
             $control->getHtmlName(),
             $control->getValue(),
             $control->isDisabled(),
+            $attributesProvider->findDataAttributes($control),
         );
     }
 

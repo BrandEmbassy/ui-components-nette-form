@@ -4,6 +4,7 @@ namespace BrandEmbassy\Components\NetteForm\FormField\CheckBoxList;
 
 use BrandEmbassy\Components\NetteForm\FormField;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
 use function assert;
@@ -14,6 +15,15 @@ use function in_array;
  */
 class CheckboxListWithIconsFormFieldRenderer implements FieldRenderer
 {
+    private NetteHtmlDataAttributesProvider $netteHtmlDataAttributesProvider;
+
+
+    public function __construct()
+    {
+        $this->netteHtmlDataAttributesProvider = new NetteHtmlDataAttributesProvider();
+    }
+
+
     public function render(IComponent $control): UiComponent
     {
         assert($control instanceof CheckboxListWithIconsFormField);
@@ -26,7 +36,13 @@ class CheckboxListWithIconsFormFieldRenderer implements FieldRenderer
 
     public function renderPlainCheckBoxList(CheckboxListWithIconsFormField $control): UiComponent
     {
-        return new CheckBoxList($control->getHtmlName(), $this->createRowDataFromDefaultValues($control));
+        $dataAttributes = $this->netteHtmlDataAttributesProvider->findDataAttributes($control);
+
+        return new CheckBoxList(
+            $control->getHtmlName(),
+            $this->createRowDataFromDefaultValues($control),
+            $dataAttributes,
+        );
     }
 
 

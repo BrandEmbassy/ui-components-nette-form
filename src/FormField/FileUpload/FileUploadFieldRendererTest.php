@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\FileUpload;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class FileUploadFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $form = new Form();
@@ -22,6 +19,27 @@ class FileUploadFieldRendererTest extends TestCase
         $renderer = new FileUploadFieldRenderer();
         $component = $renderer->render($upload);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/fileUpload.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/fileUpload.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'FileUpload-upload\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $form = new Form();
+        $upload = $form->addUpload('upload');
+        $upload->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new FileUploadFieldRenderer();
+        $component = $renderer->render($upload);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/fileUpload.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

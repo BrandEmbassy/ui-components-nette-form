@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,8 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class NumericInputFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
     private const MIN_VALUE = 1;
     private const MAX_VALUE = 10;
 
@@ -27,6 +25,29 @@ class NumericInputFieldRendererTest extends TestCase
         $renderer = new NumericInputFieldRenderer(new InputFieldRenderer());
         $component = $renderer->render($numericInputField);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/numericInput.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/numericInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Input-name\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $numericInputField = new NumericInputField('label', self::MIN_VALUE, self::MAX_VALUE);
+        $numericInputField->setHtmlAttribute('data-attr', 'value');
+
+        $form = new Form();
+        $form->addComponent($numericInputField, 'name');
+
+        $renderer = new NumericInputFieldRenderer(new InputFieldRenderer());
+        $component = $renderer->render($numericInputField);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/numericInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

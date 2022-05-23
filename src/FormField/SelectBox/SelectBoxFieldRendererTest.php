@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\SelectBox;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class SelectBoxFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $form = new Form();
@@ -25,6 +22,30 @@ class SelectBoxFieldRendererTest extends TestCase
         $renderer = new SelectBoxFieldRenderer();
         $component = $renderer->render($select);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/selectBox.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/selectBox.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Selectbox-name\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $form = new Form();
+        $select = $form->addSelect('name', 'label', [
+            'key-1' => 'item-1',
+            'key-2' => 'item-2',
+        ]);
+        $select->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new SelectBoxFieldRenderer();
+        $component = $renderer->render($select);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/selectBox.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

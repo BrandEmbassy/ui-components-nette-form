@@ -4,6 +4,7 @@ namespace BrandEmbassy\Components\NetteForm\FormField\Hidden;
 
 use BrandEmbassy\Components\Controls\Hidden\Hidden;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\HiddenField;
@@ -18,7 +19,13 @@ class HiddenInputFieldRenderer implements FieldRenderer
     {
         assert($control instanceof HiddenField);
 
-        return new Hidden($control->getHtmlName(), (string)$control->getValue());
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
+
+        return new Hidden(
+            $control->getHtmlName(),
+            (string)$control->getValue(),
+            $attributesProvider->findDataAttributes($control),
+        );
     }
 
 

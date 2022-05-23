@@ -9,6 +9,7 @@ use BrandEmbassy\Components\Grid\GridColumn\GridColumn;
 use BrandEmbassy\Components\Grid\GridColumn\GridColumnOption;
 use BrandEmbassy\Components\Grid\GridRow;
 use BrandEmbassy\Components\NetteForm\FormField;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\NetteForm\OptionField;
 use BrandEmbassy\Components\UiComponent;
 use BrandEmbassy\Components\Utilities\UtilitiesOption;
@@ -51,6 +52,7 @@ class InputFieldRenderer
         $placeholder = $textInput->getOption(OptionField::PLACEHOLDER) ?? '';
 
         $readOnly = $textInput->getOption(OptionField::READONLY, false);
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
 
         return new Input(
             $textInput->getHtmlName(),
@@ -62,6 +64,7 @@ class InputFieldRenderer
             (string)$placeholder,
             $textInput->isDisabled(),
             $readOnly,
+            $attributesProvider->findDataAttributes($textInput),
         );
     }
 

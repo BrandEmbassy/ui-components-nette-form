@@ -5,6 +5,7 @@ namespace BrandEmbassy\Components\NetteForm\FormField\Submit;
 use BrandEmbassy\Components\Controls\Button\Button;
 use BrandEmbassy\Components\NetteForm\FormField;
 use BrandEmbassy\Components\NetteForm\FormField\FieldRenderer;
+use BrandEmbassy\Components\NetteForm\NetteHtmlDataAttributesProvider;
 use BrandEmbassy\Components\UiComponent;
 use Nette\ComponentModel\IComponent;
 use Nette\Forms\Controls\SubmitButton;
@@ -26,7 +27,17 @@ class SubmitFieldRenderer implements FieldRenderer
 
     public function renderPlainSubmit(SubmitButton $control): UiComponent
     {
-        return new Button((string)$control->caption, null, null, null, $control->isDisabled());
+        $attributesProvider = new NetteHtmlDataAttributesProvider();
+
+        return new Button(
+            (string)$control->caption,
+            null,
+            null,
+            null,
+            $control->isDisabled(),
+            null,
+            $attributesProvider->findDataAttributes($control),
+        );
     }
 
 

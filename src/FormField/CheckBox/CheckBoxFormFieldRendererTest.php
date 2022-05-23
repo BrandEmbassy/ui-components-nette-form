@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\CheckBox;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class CheckBoxFormFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRenderingCheckBox(): void
     {
         $form = new Form();
@@ -22,6 +19,27 @@ class CheckBoxFormFieldRendererTest extends TestCase
         $renderer = new CheckBoxFormFieldRenderer();
         $checkBoxComponent = $renderer->render($checkbox);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/checkbox.html', $checkBoxComponent);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/checkbox.html',
+            $checkBoxComponent->render(),
+            ['dataAttribute' => 'data-cy=\'Checkbox-checkBox\''],
+        );
+    }
+
+
+    public function testRenderingCheckBoxWithCustomDataAttributes(): void
+    {
+        $form = new Form();
+        $checkbox = $form->addCheckbox('checkBox');
+        $checkbox->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new CheckBoxFormFieldRenderer();
+        $checkBoxComponent = $renderer->render($checkbox);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/checkbox.html',
+            $checkBoxComponent->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

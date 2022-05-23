@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class LongTextInputFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $longTextInput = new LongTextInputField('label');
@@ -24,6 +21,29 @@ class LongTextInputFieldRendererTest extends TestCase
         $renderer = new LongTextInputFieldRenderer(new InputFieldRenderer());
         $component = $renderer->render($longTextInput);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/longTextInput.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/longTextInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Input-name\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $longTextInput = new LongTextInputField('label');
+        $longTextInput->setHtmlAttribute('data-attr', 'value');
+
+        $form = new Form();
+        $form->addComponent($longTextInput, 'name');
+
+        $renderer = new LongTextInputFieldRenderer(new InputFieldRenderer());
+        $component = $renderer->render($longTextInput);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/longTextInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

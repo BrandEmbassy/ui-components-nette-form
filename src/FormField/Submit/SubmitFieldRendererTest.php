@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\Submit;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class SubmitFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $form = new Form();
@@ -22,6 +19,27 @@ class SubmitFieldRendererTest extends TestCase
         $renderer = new SubmitFieldRenderer();
         $component = $renderer->render($submit);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/submit.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/submit.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Button\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $form = new Form();
+        $submit = $form->addSubmit('name', 'caption');
+        $submit->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new SubmitFieldRenderer();
+        $component = $renderer->render($submit);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/submit.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

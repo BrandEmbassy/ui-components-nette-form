@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\Hidden;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HiddenInputFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $form = new Form();
@@ -22,6 +19,27 @@ class HiddenInputFieldRendererTest extends TestCase
         $renderer = new HiddenInputFieldRenderer();
         $component = $renderer->render($hidden);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/hiddenInput.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/hiddenInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Hidden-name\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $form = new Form();
+        $hidden = $form->addHidden('name', 'value');
+        $hidden->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new HiddenInputFieldRenderer();
+        $component = $renderer->render($hidden);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/hiddenInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }

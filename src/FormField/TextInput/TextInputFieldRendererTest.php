@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm\FormField\TextInput;
 
-use BrandEmbassy\Components\SnapshotAssertTrait;
+use BrandEmbassy\MockeryTools\Snapshot\SnapshotAssertions;
 use Nette\Forms\Form;
 use PHPUnit\Framework\TestCase;
 
@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class TextInputFieldRendererTest extends TestCase
 {
-    use SnapshotAssertTrait;
-
-
     public function testRender(): void
     {
         $form = new Form();
@@ -22,6 +19,27 @@ class TextInputFieldRendererTest extends TestCase
         $renderer = new TextInputFieldRenderer(new InputFieldRenderer());
         $component = $renderer->render($textInput);
 
-        $this->assertSnapshot(__DIR__ . '/__snapshots__/textInput.html', $component);
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/textInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-cy=\'Input-name\''],
+        );
+    }
+
+
+    public function testRenderWithCustomDataAttribute(): void
+    {
+        $form = new Form();
+        $textInput = $form->addText('name', 'label');
+        $textInput->setHtmlAttribute('data-attr', 'value');
+
+        $renderer = new TextInputFieldRenderer(new InputFieldRenderer());
+        $component = $renderer->render($textInput);
+
+        SnapshotAssertions::assertSnapshotAndReplace(
+            __DIR__ . '/__snapshots__/textInput.html',
+            $component->render(),
+            ['dataAttribute' => 'data-attr=\'value\''],
+        );
     }
 }
