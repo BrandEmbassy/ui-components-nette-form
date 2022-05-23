@@ -2,7 +2,7 @@
 
 namespace BrandEmbassy\Components\NetteForm;
 
-use Nette\Utils\Html;
+use Nette\Forms\Controls\Checkbox;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 use function assert;
@@ -17,17 +17,15 @@ class NetteHtmlDataAttributesProviderTest extends TestCase
 
     public function testFindingDataAttributes(): void
     {
-        $html = new Html();
-        $html->addAttributes([
-            'data-first' => 'string-value',
-            'style' => 'text-align: center;',
-            'data-second' => [
-                'json' => 'value',
-            ],
+        $checkbox = new Checkbox('label');
+        $checkbox->setHtmlAttribute('data-first', 'string-value');
+        $checkbox->setHtmlAttribute('style', 'text-align: center;');
+        $checkbox->setHtmlAttribute('data-second', [
+            'json' => 'value',
         ]);
 
-        $attributesResolver = new NetteHtmlDataAttributesProvider($html);
-        $dataAttributes = $attributesResolver->findDataAttributes();
+        $attributesResolver = new NetteHtmlDataAttributesProvider();
+        $dataAttributes = $attributesResolver->findDataAttributes($checkbox);
 
         assert($dataAttributes !== null);
         Assert::assertSame(self::EXPECTED_DATA_ATTRIBUTES_HTML, $dataAttributes->getHtmlAttributes());
@@ -36,14 +34,12 @@ class NetteHtmlDataAttributesProviderTest extends TestCase
 
     public function testReturningNullWhenNoDataAttributeFound(): void
     {
-        $html = new Html();
-        $html->addAttributes([
-            'style' => 'text-align: center;',
-            'height' => 300,
-        ]);
+        $checkbox = new Checkbox('label');
+        $checkbox->setHtmlAttribute('height', 300);
+        $checkbox->setHtmlAttribute('style', 'text-align: center;');
 
-        $attributesResolver = new NetteHtmlDataAttributesProvider($html);
-        $dataAttributes = $attributesResolver->findDataAttributes();
+        $attributesResolver = new NetteHtmlDataAttributesProvider();
+        $dataAttributes = $attributesResolver->findDataAttributes($checkbox);
 
         Assert::assertNull($dataAttributes);
     }

@@ -4,7 +4,7 @@ namespace BrandEmbassy\Components\NetteForm;
 
 use BrandEmbassy\Components\DataAttribute;
 use BrandEmbassy\Components\DataAttributes;
-use Nette\Utils\Html;
+use Nette\Forms\Controls\BaseControl;
 use Nette\Utils\Strings;
 use function array_filter;
 use function is_array;
@@ -15,18 +15,15 @@ use const ARRAY_FILTER_USE_KEY;
  */
 class NetteHtmlDataAttributesProvider
 {
-    private Html $html;
-
-
-    public function __construct(Html $html)
+    public function findDataAttributes(BaseControl $baseControl): ?DataAttributes
     {
-        $this->html = $html;
-    }
+        $html = $baseControl->getControlPrototype();
 
-
-    public function findDataAttributes(): ?DataAttributes
-    {
-        $rawDataAttributes = array_filter($this->html->attrs, static fn(string $key): bool => Strings::startsWith($key, 'data-'), ARRAY_FILTER_USE_KEY);
+        $rawDataAttributes = array_filter(
+            $html->attrs,
+            static fn(string $key): bool => Strings::startsWith($key, 'data-'),
+            ARRAY_FILTER_USE_KEY,
+        );
 
         if ($rawDataAttributes === []) {
             return null;
